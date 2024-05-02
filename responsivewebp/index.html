@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #d0e9d0;
+      }
+      #sidebar {
+        background-color: #339b19;
+        color: #fff;
+        padding-top: 20px;
+        width: 150px;
+        min-height: 100vh;
+        transition: all 0.3s;
+      }
+      #sidebar .list-group-item {
+        background-color: transparent;
+        color: #fff;
+        border: none;
+      }
+      #main-content {
+        padding: 20px;
+      }
+      .card {
+        margin-bottom: 20px;
+      }
+      .card-header {
+        background-color: #349037;
+        color: #fff;
+      }
+      .card-title {
+        color: #0e1111;
+      }
+      .statistic {
+        background-color: #f6fafa;
+        margin: 20px;
+        padding: 20px;
+        margin-left: 100px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .statistic h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: #323233;
+        margin-bottom: 10px;
+      }
+      .statistic p {
+        font-size: 18px;
+        color: #6c757d;
+      }
+      .dashboard-heading {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .welcome-content {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .company-name {
+        text-align: center;
+        font-size: 24px;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      .company-description {
+        text-align: center;
+        color: #6c757d;
+      }
+
+      /* Media query for small devices */
+      @media (max-width: 768px) {
+        #sidebar {
+          width: 0;
+          overflow: hidden;
+        }
+        .hamburger {
+          display: block;
+        }
+        .statistic h2 {
+          font-size: 20px;
+          font-weight: bold;
+          color: #323233;
+          margin-bottom: 10px;
+        }
+        .hamburger {
+          cursor: pointer;
+          padding: 10px;
+          position: absolute;
+          top: 8px;
+          left: 10px;
+          z-index: 999;
+          background-color: #dfe6df;
+        }
+        .hamburger div {
+          display: block;
+          width: 20px;
+          height: 2px;
+          background-color: #111111;
+          margin: 4px 0;
+        }
+        .nv {
+          background-color:green!important;
+          height: 8vh;
+          width: 100vw;
+          z-index: 1;
+        }
+        .sidebar {
+          background-color: #d2d7d2;
+          position: sticky;
+          padding-top: 10px;
+          width: 60px;
+        }
+        #sidebar .list-group-item {
+          background-color: transparent;
+          color: #fff;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      /* Hamburger icon styles */
+    </style>
+  </head>
+  <body>
+    <nav class="nv">
+      <!-- Hamburger icon -->
+      <div class="hamburger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+    <div id="sidebar" class="position-fixed">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action">Products</a>
+        <a href="#" class="list-group-item list-group-item-action">Orders</a>
+        <a href="#" class="list-group-item list-group-item-action">Customers</a>
+        <a href="#" class="list-group-item list-group-item-action">Reports</a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <div class="container">
+        <h1 class="dashboard-heading">Admin Dashboard</h1>
+        <div class="welcome-content">
+          <h2>Welcome, Admin!</h2>
+          <p>Manage your ecommerce business efficiently.</p>
+        </div>
+        <div class="company-name">chillHeaven Ice Cream Co.</div>
+        <div class="company-description">
+          A leading provider of high-quality products.
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="statistic">
+              <h2>Total Orders Placed</h2>
+              <p>230</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="statistic">
+              <h2>Customers Visited</h2>
+              <p>500</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="statistic">
+              <h2>Total Products</h2>
+              <p>1000</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="statistic">
+              <h2>Total Revenue</h2>
+              <p>50,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript to toggle sidebar -->
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "150px") {
+          sidebar.style.width = "0";
+        } else {
+          sidebar.style.width = "150px";
+        }
+      }
+    </script>
+  </body>
+</html>

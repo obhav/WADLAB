@@ -1,0 +1,83 @@
+<div class="container">
+    <h1 style="text-align: center;font-size: 21px">{{title}}</h1>
+    <input type="text" #name class="edit" placeholder="Enter your Name" name="Name"><br>
+    <input type="text" #address class="edit" placeholder="Enter your Address" name="Address"><br>
+    <input type="text" #contact class="edit" placeholder="Enter your contact" name="Contact"><br>
+    <input type="email" #email class="edit" placeholder="Enter your Email" name="Email"><br>
+    <input type="password" #password class="edit" placeholder="Enter your password" name="Password"><br>
+    <button class="butt" (click)="getValue(name.value,address.value,contact.value,email.value)">Register</button>
+  
+    <h1 style="text-align: center;font-size: 21px;">Your Registered data</h1>
+    <p style="margin-bottom: 5px;">Name: {{displayName}}</p>
+    <p style="margin-bottom: 5px;">Address: {{displayAddress}}</p>
+    <p style="margin-bottom: 5px;">Contact: {{displayContact}}</p>
+    <p style="margin-bottom: 5px;">Email: {{displayEmail}}</p>
+  </div>
+
+################
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+.butt {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+
+################
+
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'Registration From';
+  displayName = ''
+  displayAddress = ''
+  displayContact = ''
+  displayEmail = ''
+
+  getValue(name: string, address: string, contact: string, email: string) {
+    this.displayName = name;
+    this.displayContact = contact;
+    this.displayAddress = address;
+    this.displayEmail = email;
+  }
+}

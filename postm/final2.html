@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>User Registration</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" id="country" name="country" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn">Register</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button type="button" id="clearStorageBtn" class="btn btn-secondary">Clear LocalStorage</button>
+        </form>
+
+        <h2 class="mt-5">Registered Users</h2>
+        <div class="table-wrapper mt-3">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const registrationForm = document.getElementById("registrationForm");
+            const tbody = document.getElementById("tbody");
+
+           
+            function renderUser(user) {
+                const newRow = document.createElement("tr");
+                const serialNumber = tbody.children.length + 1;
+                newRow.innerHTML = `
+                    <td>${serialNumber}</td>
+                    <td>${user.name}</td>
+                    <td>${user.username}</td>
+                    <td>${user.age}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.city}</td>
+                    <td>${user.country}</td>
+                `;
+                tbody.appendChild(newRow);
+            }
+
+            
+            function renderAllUsers() {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                users.forEach(renderUser);
+            }
+
+            renderAllUsers();
+
+           
+            registrationForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const formData = new FormData(registrationForm);
+                const user = Object.fromEntries(formData);
+                renderUser(user);
+                localStorage.setItem("users", JSON.stringify([...JSON.parse(localStorage.getItem("users") || "[]"), user]));
+                registrationForm.reset();
+            });
+
+            
+            document.getElementById("clearStorageBtn").addEventListener("click", function () {
+                localStorage.clear();
+                tbody.innerHTML = ""; 
+                alert("Local storage cleared!");
+            });
+        });
+    </script>
+</body>
+</html>

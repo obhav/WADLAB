@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopStop</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        img {
+            margin: 20px;
+            height: 400px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        #shadow {
+            text-shadow: 10px 2px 7px yellowgreen;
+            font-size: 20px;
+        }
+
+        .fl {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            margin: 20px;
+            text-align: center;
+        }
+
+        img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="main">
+        <div data-role="header" data-theme="b">
+            <h1>ShopStop</h1>
+        </div>
+        <div data-role="navbar" data-grid="c">
+            <ul>
+                <li><a href="#" class="ui-btn-active">Home</a></li>
+                <li><a href="#" class="ui-btn-active">About us</a></li>
+                <li><a href="#" class="ui-btn-active">Products</a></li>
+                <li><a href="./register.html" class="ui-btn-active">Login/Register</a></li>
+            </ul>
+        </div>
+        <center>
+            <h3>Products</h3>
+        </center>
+        <div data-role="content">
+            <div class="rows" id="products">
+                <center>
+                    <p id="shadow">Shoes & Watches</p>
+                </center>
+                <div class="fl">
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
+                            alt="products" />
+                        <p>₹4999 <button class="add-to-cart" data-price="4999">Add to Cart</button></p>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2hvZXN8ZW58MHx8MHx8fDA%3D%22"
+                            alt="products" />
+                        <p>₹2999 <button class="add-to-cart" data-price="2999">Add to Cart</button></p>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1594576722512-582bcd46fba3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2F0Y2hlc3xlbnwwfHwwfHx8MA%3D%3D"
+                            alt="products" />
+                        <p>₹8999 <button class="add-to-cart" data-price="8999">Add to Cart</button></p>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1557531365-e8b22d93dbd0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhdGNoZXN8ZW58MHx8MHx8fDA%3D"
+                            alt="products" />
+                        <p>₹1999 <button class="add-to-cart" data-price="1999">Add to Cart</button></p>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1557531365-e8b22d93dbd0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhdGNoZXN8ZW58MHx8MHx8fDA%3D"
+                            alt="products" />
+                        <p>₹1999 <button class="add-to-cart" data-price="1999">Add to Cart</button></p>
+                    </div>
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1557531365-e8b22d93dbd0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhdGNoZXN8ZW58MHx8MHx8fDA%3D"
+                            alt="products" />
+                        <p>₹1999 <button class="add-to-cart" data-price="1999">Add to Cart</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer" id="ab">
+            <center>
+                <p>Email : ShopStop@gmail.com</p>
+                <p>pincode : 411041</p>
+            </center>
+            <center>
+                <h2>All Rights Are Reserved &copy</h2>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var cart = [];
+
+            $(".add-to-cart").click(function () {
+                var price = parseInt($(this).data("price"));
+                cart.push(price);
+                alert("Item added to cart!");
+                console.log(cart);
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

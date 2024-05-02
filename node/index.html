@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .card {
+            background-color: wheat;
+            height: 650px;
+            width: 374px;
+            border-radius: 10px;
+            padding: 4px;
+            box-shadow: 0px 0px 200px mediumpurple;
+        }
+
+
+        #cimg {
+            height: 274px;
+            width: 365px;
+            margin-bottom: 21px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        span {
+            background-color: aquamarine;
+            padding: 4px 15px;
+            border-radius: 10px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px purple;
+
+        }
+
+        .para {
+            margin-top: 10px;
+            font-family: cursive;
+            font-size: 24px;
+        }
+
+        .readmore {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: aqua;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px purple;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 10px;
+            text-shadow: 0px 0px 16px yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="card">
+            <img id="cimg"
+                src="https://images.pexels.com/photos/1213447/pexels-photo-1213447.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="cardimg">
+            <!-- <div class="content">
+                <span>Prev</span>
+                <span>Next</span>
+            </div> -->
+            <h1>Happy Diwali</h1>
+            <div class="para">
+                <p>May these fireworks burn away all our troubles, problems and sorrows, and may these light up our life
+                    with happiness, joy, and peace this wonderful Diwali.</p>
+            </div>
+            <div class="extra-info para" style="display: none;">
+                <!-- <br> -->
+                <p>Diwali, also known as the Festival of Lights, is one of the most popular Hindu festivals. It
+                    symbolizes the victory of light over darkness, good over evil, and knowledge over ignorance.</p>
+            </div>
+            <div class="readmore">
+                <button onclick="toggleExtraInfo()">Readmore</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleExtraInfo() {
+            var extraInfo = document.querySelector('.extra-info');
+            if (extraInfo.style.display === 'none' || extraInfo.style.display === '') {
+                extraInfo.style.display = 'block';
+                document.querySelector('.readmore button').innerText = 'Hide';
+            } else {
+                extraInfo.style.display = 'none';
+                document.querySelector('.readmore button').innerText = 'Readmore';
+            }
+        }
+    </script>
+
+
+
+    <!-- 
+    const express = require('express');
+
+const app = express();
+
+app.use(express.static('public'));
+
+app.listen(4000, () => {
+    console.log("server is running on port 4000");
+})
+ -->
+</body>
+
+</html>
